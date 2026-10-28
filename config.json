@@ -1,0 +1,65 @@
+{
+  "source_directories": [
+    "C:/Users/AAnu1/Downloads",
+    "C:/Users/AAnu1/OneDrive/Desktop",
+    "C:/Users/AAnu1/Desktop"
+  ],
+  "target_root": "D:/Organized",
+  "grace_period_minutes": 15,
+  "installer_stale_days": 7,
+  "ignore_extensions": [
+    ".lnk",
+    ".url",
+    ".ini",
+    ".sys",
+    ".crdownload",
+    ".part",
+    ".tmp"
+  ],
+  "ignore_filenames": [
+    "desktop.ini",
+    "thumbs.db",
+    "Universal_Game_Booster.bat",
+    "Universal_Game_Booster.ps1",
+    "Universal_Health_And_Booster.bat",
+    "Check_Booster_Status.bat",
+    "Launch_Valorant_Ultra_FPS.bat",
+    "OPTIMIZE_GAMING_ADMIN.bat",
+    "APPLY_MAX_FPS_TWEAKS.reg",
+    "Fix_VMware_Nested_And_Valorant.bat",
+    "Run_Security_Hardening.bat"
+  ],
+  "ignore_folders": [
+    "Tor Browser",
+    "ChangeEdition_Logs",
+    "infra-job-automate-main",
+    "JobIntelligence-Release",
+    "lenovo"
+  ],
+  "rules": {
+    "Applications_and_Installers": [
+      ".exe", ".msi", ".iso", ".img", ".dmg", ".pkg", ".appx", ".msix"
+    ],
+    "Documents": [
+      ".pdf", ".docx", ".doc", ".xlsx", ".xls", ".pptx", ".ppt", ".csv"
+    ],
+    "Media/Videos": [
+      ".mp4", ".mkv", ".avi", ".mov", ".wmv", ".flv", ".webm"
+    ],
+    "Media/Images": [
+      ".png", ".jpg", ".jpeg", ".webp", ".svg", ".gif", ".ico", ".bmp", ".tiff"
+    ],
+    "Media/Audio": [
+      ".mp3", ".wav", ".flac", ".aac", ".ogg", ".m4a"
+    ],
+    "Compressed_Archives": [
+      ".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz"
+    ],
+    "Code_and_Scripts": [
+      ".py", ".ps1", ".bat", ".sh", ".cmd", ".reg", ".sql", ".json", ".yaml", ".yml", ".xml", ".html", ".css", ".js", ".ts"
+    ],
+    "Text_and_Notes": [
+      ".txt", ".md", ".log", ".rtf"
+    ]
+  }
+}
