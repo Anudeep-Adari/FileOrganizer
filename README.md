@@ -30,28 +30,60 @@
 ## 📌 Architecture & Execution Flow
 
 ```mermaid
-flowchart LR
-    subgraph Input ["📥 Source Directory"]
-        Unsorted["Unsorted Downloads / Workspace Files"]
+flowchart TB
+    %% Styling & Spacing
+    classDef client fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#ffffff;
+    classDef zone fill:#0d1117,stroke:#30363d,stroke-width:1.5px,color:#c9d1d9;
+    classDef security fill:#161b22,stroke:#f85149,stroke-width:2px,color:#ffffff;
+    classDef data fill:#161b22,stroke:#3fb950,stroke-width:2px,color:#ffffff;
+
+    subgraph InputTier [" 📥 SOURCE DIRECTORY & STAGING INGESTION "]
+        direction LR
+        RawDownloads["Unsorted Downloads<br/><sub>Transient Web Files & Installers</sub>"]:::client
+        DesktopDump["Desktop Clutter<br/><sub>Ad-hoc Working Documents & Scripts</sub>"]:::client
     end
 
-    subgraph Engine ["⚙️ Execution Engine"]
-        Matcher["Rule Matcher (config.json)"]
-        Collision["Collision Handler & Collision Renamer"]
-        Journal["Atomic Journal Ledger (journal.json)"]
+    subgraph Region1 [" ⚙️ REGION 1: TAXONOMY & RULE MATRIX "]
+        direction TB
+        ConfigMap["Rule Engine (config.json)<br/>• Extension Taxonomy Mapping (.pdf, .zip, .exe)<br/>• Pattern Matching & Prefix Filter"]:::client
+        MetaParser["Metadata & Date Sorter<br/>• Creation / Modification Timestamping<br/>• Monthly Sub-Vault Routing"]:::client
     end
 
-    subgraph Output ["📁 Target Vaults"]
-        Docs["Documents / Archive"]
-        Media["Images & Video Assets"]
-        Archives["Compressed Archives"]
-        Code["Source Code Projects"]
+    subgraph Region2 [" 🛡️ REGION 2: COLLISION & INTEGRITY ENGINE "]
+        direction TB
+        CollisionGuard["Collision Resolver<br/>• Incremental Suffixing (_v1, _v2)<br/>• Zero Overwrite Protection"]:::security
+        DryRunInspector["Dry-Run Inspector<br/>• Preview Matrix Generation<br/>• Pre-Execution Path Validation"]:::security
     end
 
-    Input --> Matcher
-    Matcher --> Collision
-    Collision --> Journal
-    Journal --> Output
+    subgraph CentralTransit [" 🔄 CENTRAL TRANSIT: ATOMIC TRANSACTION GATEWAY "]
+        direction TB
+        MoveExecutor["Atomic Move Executor<br/><sub>Transactional Filesystem Operation</sub>"]:::security
+        JournalStore[("Reversible Transaction Store<br/>journal.json Audit Trail")]:::data
+    end
+
+    subgraph StorageVaults [" 📁 ORGANIZED STORAGE VAULTS PLANE "]
+        direction LR
+        Docs["📁 Documents & Manuals"]:::data
+        Media["📁 Images & Media Assets"]:::data
+        Archives["📁 Compressed Archives"]:::data
+        Code["📁 Source Code Projects"]:::data
+    end
+
+    %% Spacious Architectural Connections
+    RawDownloads ---------> ConfigMap
+    DesktopDump ----------> ConfigMap
+
+    ConfigMap ------------> MetaParser
+    MetaParser -----------> CollisionGuard
+    CollisionGuard -------> DryRunInspector
+
+    DryRunInspector ------> MoveExecutor
+    MoveExecutor -.-.-.-.->|Record Previous & New Paths| JournalStore
+
+    MoveExecutor ---------> Docs
+    MoveExecutor ---------> Media
+    MoveExecutor ---------> Archives
+    MoveExecutor ---------> Code
 ```
 
 ---
