@@ -2,12 +2,11 @@
 
 # 🗂️ FileOrganizer
 
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&duration=3000&pause=1000&color=2EA043&center=true&vCenter=true&width=620&lines=Rule-Based+File+Routing+%26+Classification;Dual-Engine+Architecture+(PowerShell+%2B+Python);Journaled+Reversible+File+Operations;Automated+Workspace+Hygiene+Utility" alt="Typing SVG" />
-</p>
+### Multi-Extension File Classification, Safe Relocation & Storage Organizer
+**PowerShell 7+ • Python 3.10+ • Atomic Transaction Journal • Reversible Operations**
 
 <p align="center">
-  <strong>Automated Multi-Extension File Classification, Safe Relocation & Journaled Storage Organizer</strong>
+  <em>Rule-based storage classifier featuring conflict resolution, atomic file moving, and comprehensive audit logs.</em>
 </p>
 
 <!-- Badges -->
@@ -85,3 +84,4 @@ Crafted with high engineering precision by **[Anudeep Adari](https://github.com/
 Continuous AI Code Reviews powered by **CodeRabbit**
 
 </div>
+
